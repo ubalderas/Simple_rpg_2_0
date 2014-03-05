@@ -37,6 +37,7 @@ function lose(){
 function gameOver(){
     $('button').addClass('gameover');
     $('#play').removeClass('gameover');
+	$('#save').removeClass('gameover');
     $('.playerStats div').addClass('gameover');
     $('#enemyhp').addClass('gameover');
     $('#play').html('Continue?');
@@ -48,11 +49,11 @@ function gameOver(){
 //are then added to the player's object own respective properties.
 
 function defeat(){
-    slayer.maxHP = slayer.maxHP+enemy.expHP;
-    slayer.str = slayer.str+enemy.expstr;
-    slayer.Gold = slayer.Gold+enemy.expgold;
-    slayer.int = slayer.int+enemy.expint;
-    slayer.maxMP = slayer.maxMP+enemy.expMP;
+    player.maxHP = player.maxHP+enemy.expHP;
+    player.str = player.str+enemy.expstr;
+    player.gold = player.gold+enemy.expgold;
+    player.int = player.int+enemy.expint;
+    player.maxMP = player.maxMP+enemy.expMP;
 	
 }
 //Current Battle Statistics Printing function
@@ -71,21 +72,21 @@ function statsPrint(){
 by making it have an object as an input, for future uses of the same window as a display for other properties */
 function statsWindowUpdate(){
 	$('#statsWindow').empty();
-	var maxHPstat = 'MAX HP: '+slayer.maxHP;
-	var maxMPstat = 'MAX MP: '+slayer.maxMP;
+	var maxHPstat = 'MAX HP: '+player.maxHP;
+	var maxMPstat = 'MAX MP: '+player.maxMP;
 	$statsTitle=$('<div></div>');
     $statsTitle.html("Slayer").addClass('red');
     $("#statsWindow").append($statsTitle);
 	$statsList=$('<ul></ul>');
 	$statsList.css('list-style', 'none').css('margin','0px').css('padding','0px');
 	$statsListSTR=$('<li></li>');
-	$statsListSTR.html('STR: '+slayer.str);
+	$statsListSTR.html('STR: '+player.str);
 	$statsListINT=$('<li></li>');
-	$statsListINT.html('INT: '+slayer.int);
+	$statsListINT.html('INT: '+player.int);
 	$statsListHP=$('<li></li>');
-	$statsListHP.html('MAX HP: '+slayer.maxHP);
+	$statsListHP.html('MAX HP: '+player.maxHP);
 	$statsListMP=$('<li></li>');
-	$statsListMP.html('MAX MP: '+slayer.maxMP);
+	$statsListMP.html('MAX MP: '+player.maxMP);
 	$statsList.append($statsListSTR).append($statsListINT).append($statsListHP).append($statsListMP);
 	$("#statsWindow").append($statsList);
 };
@@ -111,6 +112,9 @@ function missed (){
 	$missedDialog.html('The attack missed!').addClass('red');
 	$(".battleWindow").append($missedDialog);
 };
+
+//Enemy Turn function
+//This function is called whenever it is the turn of the enemy during a battle.
 
 function enemyTurn(){
 	if(slayer.turn){
@@ -145,3 +149,15 @@ function dungeonFinished (){
 	enemiesDef = 0;
 	
 };
+
+function saveData(player){
+
+	var newJSON = JSON.stringify(player);    
+    localStorage.setItem("localsave", newJSON);
+}
+
+function loadData(){
+	var lsave = localStorage.getItem("localsave");
+    var player =JSON.parse(lsave);
+	return player;
+}
