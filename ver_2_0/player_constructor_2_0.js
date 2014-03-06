@@ -6,7 +6,7 @@ function player_gen(player_obj) {
 	this.str = player_obj.str;
 	this.agil= player_obj.agil;
 	this.int = player_obj.int;
-	this.potions = player_obj.potions;
+	
     this.maxHP=player_obj.maxHP;
 	this.MP=player_obj.MP;
     this.HP=player_obj.HP;
@@ -84,9 +84,7 @@ function player_gen(player_obj) {
 				}
 				$(".battleWindow").append($slayerDialog);
 				enemy.HP -= slayerDamage;
-				this.MP -= Math.floor(2*this.maxMP/3);
-				this.block = 0;
-				this.turn = true;
+				
 			}
 			
 			else {
@@ -94,6 +92,10 @@ function player_gen(player_obj) {
 				$missedDialog.html('The attack missed!').addClass('red');
 				$(".battleWindow").append($missedDialog);
 			}
+			
+			this.MP -= Math.floor(2*this.maxMP/3);
+			this.block = 0;
+			this.turn = true;
 			
 		}
 		else{
@@ -141,24 +143,7 @@ function player_gen(player_obj) {
 		
 	//Player's method: potion
 	//This method performs the use of a potion item, which heals the player 50HP, and consumes no MP.
-	this.potion = function (){
-		if (slayer.potions>0){
-			slayer.HP = Math.min.apply(Math,[this.maxHP,slayer.HP + 50]);
-			slayer.potions -= 1;
-			$healDialog = $('<div></div>');
-			$healDialog.html("You recovered 50 HP!").addClass('blue');
-			$(".battleWindow").append($healDialog);
-			this.block = 0;
-			this.turn = true;
-			
-		}
-		else{
-			$alertDialog = $('<div></div>');
-			$alertDialog.html("You have no more potions!").addClass('red');
-			$(".battleWindow").append($alertDialog);
-			this.turn = false;
-		}
-	};
+	
 	
 	//Player's method: mp_regen
 	//This method is performed at the end of every turn, and recovers 1/4 of the maxMP
@@ -170,6 +155,6 @@ function player_gen(player_obj) {
     this.battleStart = function(){
         this.HP = this.maxHP;
 		this.MP = this.maxMP;
-		this.potions = 5;
+		
     };
 }

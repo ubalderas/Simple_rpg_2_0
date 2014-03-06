@@ -115,7 +115,6 @@ function missed (){
 
 //Enemy Turn function
 //This function is called whenever it is the turn of the enemy during a battle.
-
 function enemyTurn(){
 	if(slayer.turn){
 			enemy.Action();
@@ -130,6 +129,10 @@ function enemyTurn(){
 
 };
 
+//Enemy Selection function
+//This function is used to randomly select an enemy from the current Dungeon
+//enemy array, unless 5 enemies have been defeated, in which case the Boss enemy
+//gets selected.
 function enemySelect(enemyArray){
 	if (enemiesDef < 5){
 			
@@ -142,6 +145,9 @@ function enemySelect(enemyArray){
 	}
 };
 
+//Dungeon completed/finished function
+//This function generates a contratulatory message, and resets the enemies defeated to 0.
+//It is called when the Boss of a dungeon has been defeated.
 function dungeonFinished (){
 	$Dialog = $('<div></div>');
 	$Dialog.html('Congratulations! You have cleared this dungeon!').addClass('red');
@@ -150,14 +156,69 @@ function dungeonFinished (){
 	
 };
 
+//Save function
+//This function saves the current player object into the localstorage for HTML5
+//It converts the player object into a JSON string, saves it into local storage
+//and displays a Saved message on the save button.
 function saveData(player){
 
 	var newJSON = JSON.stringify(player);    
-    localStorage.setItem("localsave", newJSON);
+    localStorage.setItem("localsaveRPG", newJSON);
+	$('#save').html("Saved!");
 }
 
+//Load function
+//This function loads the saved player object into the game for continued progress
+//It saves the JSON string into a variable, which is then parsed and assigned to the
+//player object.
 function loadData(){
-	var lsave = localStorage.getItem("localsave");
+	var lsave = localStorage.getItem("localsaveRPG");
     var player =JSON.parse(lsave);
+	$('#load').html("Success!");
+	$('#play').html("Continue");
 	return player;
+}
+
+//Load Battle function
+//This function is used to generate the player and enemy objects for battle,
+//along with the UI for the battle screen.
+function battleLoad(dungeon,playerObj){
+
+	enemy = new enemy_gen(enemySelect(dungeon));
+	slayer = new player_gen(playerObj);
+	slayer.battleStart();
+	
+	$('.battleWindow').empty();
+	statsWindowUpdate();
+	//remove play button, show attack and heal button
+	$('button').removeClass('gameover');
+	$('.playerStats div').removeClass('gameover');
+	$('.enemyStats div').removeClass('gameover');
+	$('#statsWindowWrapper').removeClass('gameover');
+	$('#play').addClass('gameover');
+	$('#load').addClass('gameover');
+	$('#save').addClass('gameover');
+	$('#dungeon1').addClass('gameover');
+	$('#dungeon2').addClass('gameover');
+	$('#dungeon3').addClass('gameover');
+	enemy.battleStart();
+	statsPrint();
+}
+
+//Select Dungeon function
+//This function removes buttons from the UI, and leaves the dungeon buttons visible
+//for selection.
+function selectDungeon (){
+	$('.battleWindow').empty();
+	$('.battleWindow').html("Choose a dungeon!");
+	// show dungeon buttons
+	$('button').removeClass('gameover'); // rename gameover class to "hide" or something like that
+	$('#play').addClass('gameover');
+	$('#load').addClass('gameover');
+	$('#save').addClass('gameover');
+	$('#heal').addClass('gameover');
+	
+	$('#loattack').addClass('gameover');
+	$('#hiattack').addClass('gameover');
+	$('#block').addClass('gameover');
 }

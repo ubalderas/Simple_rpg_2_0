@@ -50,8 +50,7 @@ $(document).ready(function() {
 	//This function first empties the battleWindow
 	$('#block').click(function(){
 		$('.battleWindow').empty();
-		slayer.blocking();		//Then executes the slayer.blocking() method
-		
+		slayer.blocking();		//Then executes the slayer.blocking() method		
 		enemyTurn();
 		
 	});
@@ -60,17 +59,11 @@ $(document).ready(function() {
 	//This function is very similar to the blocking function, but it performs a slayer.heal() method instead.
 	$('#heal').click(function(){
 		$('.battleWindow').empty();
-		slayer.heal();
-		
+		slayer.heal();		
 		enemyTurn();
 		
 	});
-
-	$('#potion').click(function(){
-		$('.battleWindow').empty();
-		slayer.potion();
-		enemyTurn();
-		
-	});
+	
+	
 
 });

@@ -4,7 +4,7 @@ var player = {
     str:40,	//Determines physical attacks damage
     int:5,	//Determines Magic/non-physical attacks damage
 	agil:5,		//Determines if a an attack lands or misses
-    potions:5,	//Number of current health replenishing potions
+    
     maxHP:100,	//Current maximum hit points
     HP:0,	//Initializes and holds current hit points
     maxMP:20,	//Current maximum Magic/abilities points

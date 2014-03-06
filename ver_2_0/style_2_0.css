@@ -1,9 +1,10 @@
 .battleWindow{
     height:150px;
-    width:300px;
+    width:470px;
     border: 2px solid black;
     border-radius:6px;
 	display:inline-block;
+	margin-bottom:5px
 }
 
 .battleMenu{
