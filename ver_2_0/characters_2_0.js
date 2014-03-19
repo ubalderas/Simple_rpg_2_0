@@ -1,6 +1,7 @@
 //Initialize Player object
+var player = new Object;
 
-var player = {
+var newPlayer = {
     str:40,	//Determines physical attacks damage
     int:5,	//Determines Magic/non-physical attacks damage
 	agil:5,		//Determines if a an attack lands or misses
@@ -14,3 +15,4 @@ var player = {
 	turn:false	//holds a flag to determine player's turn
 };
 
+var loadPlayer = new Object;

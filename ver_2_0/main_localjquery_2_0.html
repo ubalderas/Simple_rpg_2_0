@@ -27,9 +27,16 @@
 		</div>
         <div class="stats">
             <div class="playerStats">
-                <div class ="gameover" id="playerhp">HP:</div>
-			    <div class ="gameover" id="playermp">MP:</div>
-                <div class ="gameover" id="potions">Potions:</div>
+                <div class ="gameover" id="playerhp">
+					<div id="HPtext"></div>
+					
+					<div id="HPbar" class="bar"></div>
+				</div>
+			    <div class ="gameover" id="playermp">
+					<div id="MPtext"></div> 
+					<div id="MPbar" class="bar"></div>
+				</div>
+               
             </div>
             <div class="enemyStats">
                 <div class ="gameover" id="enemyhp"></div>
@@ -46,9 +53,11 @@
 				<button class ="gameover" id="dungeon1">Dungeon 1</button>
 				<button class ="gameover" id="dungeon2">Dungeon 2</button>
 				<button class ="gameover" id="dungeon3">Dungeon 3</button>
-                <button id="play">New Game</button>
+				<button id="newGame">New Game</button>
+                <button id="play" class ="gameover">Play</button>
 				<button id="load">Load Game</button>
 				<button id="save" class ="gameover">Save</button>
+				<button id="quit" class ="gameover">Quit</button>
             </div>
         </div>  
         

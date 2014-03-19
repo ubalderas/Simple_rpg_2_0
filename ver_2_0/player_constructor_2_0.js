@@ -152,6 +152,8 @@ function player_gen(player_obj) {
 		this.MP = Math.min.apply(Math,[this.maxMP, this.MP]);
 	};
 	
+	//Player Battle start function
+	//Initializes HP and MP values for the player at the beginning of battle.
     this.battleStart = function(){
         this.HP = this.maxHP;
 		this.MP = this.maxMP;

@@ -1,5 +1,5 @@
 var enemiesDef = 0;
-
+var barWidth = 200;
 //Win function
 //Whenever called, the function appends a dialog to the battle window
 //congratulating the player for defeating the enemy
@@ -40,7 +40,11 @@ function gameOver(){
 	$('#save').removeClass('gameover');
     $('.playerStats div').addClass('gameover');
     $('#enemyhp').addClass('gameover');
+	$('#HPbar').addClass('gameover');
+	$('#MPbar').addClass('gameover');
     $('#play').html('Continue?');
+	$('#save').html("Save");
+	$('#quit').removeClass('gameover');
 }
 
 //Enemy defeated function
@@ -60,10 +64,11 @@ function defeat(){
 //This function updates the current html values of the battle statistics, and it's called at the end of every turn, and 
 //at the beginning of a battle
 function statsPrint(){
-    $('#playerhp').html('HP: '+slayer.HP);
-    $('#playermp').html('MP: '+slayer.MP);
-    $('#potions').html('Potions: '+slayer.potions);
-    $('#enemyhp').html('enemyHP: '+enemy.HP);
+    $('#HPtext').html('HP: '+slayer.HP);	
+	$('#HPbar').width(calcBarWidth(slayer.HP,slayer.maxHP,barWidth));
+    $('#MPtext').html('MP: '+slayer.MP);
+	$('#MPbar').width(calcBarWidth(slayer.MP,slayer.maxMP,barWidth));
+    $('#enemyhp').html(enemy.name+" "+enemy.HP);
 }
 //Player Attribute Stats Window update function
 //This function prints the values of the player's object attributes into the statsWindow,
@@ -173,10 +178,12 @@ function saveData(player){
 //player object.
 function loadData(){
 	var lsave = localStorage.getItem("localsaveRPG");
-    var player =JSON.parse(lsave);
+    var playerTemp =JSON.parse(lsave);
 	$('#load').html("Success!");
+	$('#newGame').addClass('gameover');
+	$('#play').removeClass('gameover');
 	$('#play').html("Continue");
-	return player;
+	return playerTemp;
 }
 
 //Load Battle function
@@ -193,6 +200,8 @@ function battleLoad(dungeon,playerObj){
 	//remove play button, show attack and heal button
 	$('button').removeClass('gameover');
 	$('.playerStats div').removeClass('gameover');
+	$('#HPbar').removeClass('gameover');
+	$('#MPbar').removeClass('gameover');
 	$('.enemyStats div').removeClass('gameover');
 	$('#statsWindowWrapper').removeClass('gameover');
 	$('#play').addClass('gameover');
@@ -201,6 +210,8 @@ function battleLoad(dungeon,playerObj){
 	$('#dungeon1').addClass('gameover');
 	$('#dungeon2').addClass('gameover');
 	$('#dungeon3').addClass('gameover');
+	$('#quit').addClass('gameover');
+	$('#newGame').addClass('gameover');
 	enemy.battleStart();
 	statsPrint();
 }
@@ -217,8 +228,49 @@ function selectDungeon (){
 	$('#load').addClass('gameover');
 	$('#save').addClass('gameover');
 	$('#heal').addClass('gameover');
+	$('#newGame').addClass('gameover');
 	
+	$('#HPbar').removeClass('gameover');
+	$('#MPbar').removeClass('gameover');
 	$('#loattack').addClass('gameover');
 	$('#hiattack').addClass('gameover');
 	$('#block').addClass('gameover');
+}
+
+//Bar Width Calculation function
+//This function calculates the width in pixels of a bar
+//given a current value, the maximum possible value, and 
+//the maximum width the bar has.
+function calcBarWidth(value, max, maxWidth){
+	var  percentValue = Math.floor(100*value/max);
+	return Math.floor(percentValue*maxWidth/100);
+}
+
+function mainScreen(){
+	$('.battleWindow').empty();
+	$titleScreen = $('<div></div>');
+	$titleScreen.html('RPG battle demo').attr('id', 'titleScreen');
+	$(".battleWindow").append($titleScreen);
+	
+	$('button').addClass('gameover');
+	$('#statsWindowWrapper').addClass('gameover');
+    $('#play').removeClass('gameover');
+	$('#load').removeClass('gameover');
+    $('.playerStats div').addClass('gameover');
+    $('#enemyhp').addClass('gameover');
+	$('#HPbar').addClass('gameover');
+	$('#MPbar').addClass('gameover');
+    $('#play').html('New Game');
+	$('#load').html("Load Game");
+
+}
+
+function newGame (){
+
+	var playerTemp = newPlayer;
+	$('#newGame').addClass('gameover');
+	$('#load').addClass('gameover');
+	$('#play').removeClass('gameover');
+	return playerTemp;
+	
 }

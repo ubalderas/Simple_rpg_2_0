@@ -8,7 +8,18 @@ $(document).ready(function() {
 		$('#load').addClass('gameover');
 	}
 	
+	$('#load').click(function(){
+		
+		player = loadData();
+				
+	});
 	
+	$('#newGame').click(function(){
+	
+		player = newGame();
+		
+		
+	});
 	//Play button click function
 	
 
@@ -50,10 +61,14 @@ $(document).ready(function() {
 	});
 	
 	//Click on Load button function
-	$('#load').click(function(){
+	
+	
+	$('#quit').click(function(){
+	
+		mainScreen();
 		
-		player = loadData();
-				
 	});
+	
+	
 
 });

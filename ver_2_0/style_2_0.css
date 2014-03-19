@@ -54,5 +54,19 @@
 	
 }
 .stats{
-    
+    height:100px;
+	width:300px;
+}
+
+.bar {
+	height:15px;
+	background-color:red;	
+}
+
+#playerHP{
+	float:right;
+}
+
+#playerMP{
+	float:right;
 }
