@@ -23,7 +23,7 @@ function enemy_gen(enemy_obj) {
 		$enemyDialog = $('<div></div>');
 		$enemyDialog.html("Snap! the "+ this.name + this.loAttDiag+" and makes "+enemyDamage+" damage!").addClass('red');
 		$(".battleWindow").append($enemyDialog);
-		slayer.HP -= enemyDamage;
+		slayer.HP = Math.max(0,slayer.HP - enemyDamage);
        
     };
 	
@@ -32,7 +32,7 @@ function enemy_gen(enemy_obj) {
 		$enemyDialog = $('<div></div>');
 		$enemyDialog.html("Snap! the "+ this.name + this.hiAttDiag+" and makes "+enemyDamage+" damage!").addClass('red');
 		$(".battleWindow").append($enemyDialog);
-		slayer.HP -= enemyDamage;
+		slayer.HP = Math.max(0,slayer.HP - enemyDamage);
        
     };
     

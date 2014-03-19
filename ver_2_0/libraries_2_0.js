@@ -1,5 +1,5 @@
 var enemiesDef = 0;
-var barWidth = 200;
+var barWidth = 250;
 //Win function
 //Whenever called, the function appends a dialog to the battle window
 //congratulating the player for defeating the enemy
@@ -38,10 +38,6 @@ function gameOver(){
     $('button').addClass('gameover');
     $('#play').removeClass('gameover');
 	$('#save').removeClass('gameover');
-    $('.playerStats div').addClass('gameover');
-    $('#enemyhp').addClass('gameover');
-	$('#HPbar').addClass('gameover');
-	$('#MPbar').addClass('gameover');
     $('#play').html('Continue?');
 	$('#save').html("Save");
 	$('#quit').removeClass('gameover');
@@ -58,6 +54,7 @@ function defeat(){
     player.gold = player.gold+enemy.expgold;
     player.int = player.int+enemy.expint;
     player.maxMP = player.maxMP+enemy.expMP;
+	statsWindowUpdate();
 	
 }
 //Current Battle Statistics Printing function
@@ -66,9 +63,13 @@ function defeat(){
 function statsPrint(){
     $('#HPtext').html('HP: '+slayer.HP);	
 	$('#HPbar').width(calcBarWidth(slayer.HP,slayer.maxHP,barWidth));
+	$('#HPbarWrapper').width(calcBarWidth(1,1,barWidth));
     $('#MPtext').html('MP: '+slayer.MP);
 	$('#MPbar').width(calcBarWidth(slayer.MP,slayer.maxMP,barWidth));
-    $('#enemyhp').html(enemy.name+" "+enemy.HP);
+	$('#MPbarWrapper').width(calcBarWidth(1,1,barWidth));
+    $('#enemyHPtext').html(enemy.name+" "+enemy.HP);
+	$('#enemyHPbar').width(calcBarWidth(enemy.HP,enemy.maxHP,barWidth));
+	$('#enemyHPbarWrapper').width(calcBarWidth(1,1,barWidth));
 }
 //Player Attribute Stats Window update function
 //This function prints the values of the player's object attributes into the statsWindow,
@@ -170,7 +171,7 @@ function saveData(player){
 	var newJSON = JSON.stringify(player);    
     localStorage.setItem("localsaveRPG", newJSON);
 	$('#save').html("Saved!");
-}
+};
 
 //Load function
 //This function loads the saved player object into the game for continued progress
@@ -184,7 +185,7 @@ function loadData(){
 	$('#play').removeClass('gameover');
 	$('#play').html("Continue");
 	return playerTemp;
-}
+};
 
 //Load Battle function
 //This function is used to generate the player and enemy objects for battle,
@@ -214,7 +215,7 @@ function battleLoad(dungeon,playerObj){
 	$('#newGame').addClass('gameover');
 	enemy.battleStart();
 	statsPrint();
-}
+};
 
 //Select Dungeon function
 //This function removes buttons from the UI, and leaves the dungeon buttons visible
@@ -229,13 +230,15 @@ function selectDungeon (){
 	$('#save').addClass('gameover');
 	$('#heal').addClass('gameover');
 	$('#newGame').addClass('gameover');
+	$('.playerStats div').addClass('gameover');
+    $('#enemyhp').addClass('gameover');
 	
 	$('#HPbar').removeClass('gameover');
 	$('#MPbar').removeClass('gameover');
 	$('#loattack').addClass('gameover');
 	$('#hiattack').addClass('gameover');
 	$('#block').addClass('gameover');
-}
+};
 
 //Bar Width Calculation function
 //This function calculates the width in pixels of a bar
@@ -244,7 +247,7 @@ function selectDungeon (){
 function calcBarWidth(value, max, maxWidth){
 	var  percentValue = Math.floor(100*value/max);
 	return Math.floor(percentValue*maxWidth/100);
-}
+};
 
 function mainScreen(){
 	$('.battleWindow').empty();
@@ -254,23 +257,22 @@ function mainScreen(){
 	
 	$('button').addClass('gameover');
 	$('#statsWindowWrapper').addClass('gameover');
-    $('#play').removeClass('gameover');
+    $('#newGame').removeClass('gameover');
 	$('#load').removeClass('gameover');
     $('.playerStats div').addClass('gameover');
     $('#enemyhp').addClass('gameover');
 	$('#HPbar').addClass('gameover');
 	$('#MPbar').addClass('gameover');
-    $('#play').html('New Game');
+    $('#newGame').html('New Game');
 	$('#load').html("Load Game");
 
-}
+};
 
-function newGame (){
+function newGame(){
 
-	var playerTemp = newPlayer;
 	$('#newGame').addClass('gameover');
 	$('#load').addClass('gameover');
 	$('#play').removeClass('gameover');
-	return playerTemp;
-	
-}
+	$('#play').html('Play');
+	console.log("newGame was executed");
+};

@@ -14,7 +14,7 @@ $(document).ready(function() {
 		$('.battleWindow').empty();
 		 
 		slayer.loAttack(hitOrMiss(slayer,enemy));			
-		
+		statsPrint();
 		
 		if(enemy.HP <= 0){	//It then checks if the enemy has been defeated, which if true, executes the win() and defeat() functions.  
 			win();			
@@ -35,6 +35,7 @@ $(document).ready(function() {
 		$('.battleWindow').empty();
 		
 		slayer.hiAttack(hitOrMiss(slayer,enemy));
+		statsPrint();
 		
 		if(enemy.HP <= 0){
 			win();

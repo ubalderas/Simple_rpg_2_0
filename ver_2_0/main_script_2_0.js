@@ -1,6 +1,7 @@
 $(document).ready(function() {
 	
-	
+	mainScreen();
+	console.log(player);
 	var currentDungeon = [];
 	
 	if(!localStorage.getItem("localsaveRPG"))
@@ -11,13 +12,15 @@ $(document).ready(function() {
 	$('#load').click(function(){
 		
 		player = loadData();
+		console.log(player);
 				
 	});
 	
 	$('#newGame').click(function(){
 	
-		player = newGame();
-		
+		player = newPlayer;
+		newGame();
+		console.log(player);
 		
 	});
 	//Play button click function

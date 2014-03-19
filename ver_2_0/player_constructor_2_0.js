@@ -39,7 +39,7 @@ function player_gen(player_obj) {
 					$slayerDialog.html("You attack the enemy and make "+slayerDamage+" damage!").addClass('green');
 				}
 				$(".battleWindow").append($slayerDialog);
-				enemy.HP -= slayerDamage;
+				enemy.HP = Math.max(0,enemy.HP - slayerDamage);
 			}
 		
 			else {
@@ -83,7 +83,7 @@ function player_gen(player_obj) {
 					$slayerDialog.html("You attack the enemy and make "+slayerDamage+" damage!").addClass('green');
 				}
 				$(".battleWindow").append($slayerDialog);
-				enemy.HP -= slayerDamage;
+				enemy.HP = Math.max(0,enemy.HP - slayerDamage);
 				
 			}
 			

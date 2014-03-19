@@ -53,20 +53,40 @@
     width: 470px;
 	
 }
-.stats{
-    height:100px;
+#stats{
+    /*height:120px;*/
 	width:300px;
 }
 
 .bar {
 	height:15px;
+	background-color:green;	
+	border-radius:5px;
+}
+
+.barWrapper {
+	height:15px;
 	background-color:red;	
+	margin-bottom:2px;
+	border-radius:5px;
 }
 
-#playerHP{
-	float:right;
+#playerhp{
+	display:inline;
 }
 
-#playerMP{
-	float:right;
+#playermp{
+	display:inline;
+}
+
+#HPbar{
+	float:left;
+}
+
+#MPbar{
+	float:left;
+}
+
+#enemyHPbar{
+	float:left;
 }

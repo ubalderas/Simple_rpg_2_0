@@ -15,4 +15,3 @@ var newPlayer = {
 	turn:false	//holds a flag to determine player's turn
 };
 
-var loadPlayer = new Object;
