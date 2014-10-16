@@ -13,6 +13,7 @@ var rattleSnake = {
 	expgold : 10,
     expint : 1,
     expMP : 0,
+	expAGI : 0,
 	loAttDiag : " bites you",
 	hiAttDiag : " bites you fiercely"
 	
@@ -30,6 +31,7 @@ var coyote = {
 	expgold : 10,
     expint : 0,
     expMP : 0,
+	expAGI : 2,
 	loAttDiag : " scratches you",
 	hiAttDiag : " runs bites you"
 	
@@ -47,6 +49,7 @@ var buffalo = {
 	expgold : 15,
     expint : 0,
     expMP : 0,
+	expAGI : 2,
 	loAttDiag : " dashes at you",
 	hiAttDiag : " runs and attacks you with its horns"
 	
@@ -68,6 +71,7 @@ var bear = {
 	expgold : 30,
     expint : 0,
     expMP : 4,
+	expAGI : 3,
 	loAttDiag : " punches you with its claws",
 	hiAttDiag : " bites you"
 	

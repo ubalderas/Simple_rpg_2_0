@@ -4,7 +4,7 @@
 var goblin = {
     name : "Goblin",
 	str : 40,
-	agil : 10,
+	agil : 20,
 	int : 5,
     maxHP : 100,
     HP : 0,
@@ -13,6 +13,7 @@ var goblin = {
 	expgold : 20,
     expint : 2,
     expMP : 2,
+	expAGI : 1,
 	loAttDiag : " mashes you with its club",
 	hiAttDiag : " runs and headbutts you"
 	
@@ -21,7 +22,7 @@ var goblin = {
 var orc = {
     name : "Orc",
 	str : 70,
-	agil : 20,
+	agil : 30,
 	int : 2,
     maxHP : 200,
     HP : 0,
@@ -30,6 +31,7 @@ var orc = {
 	expgold : 30,
     expint : 1,
     expMP : 1,
+	expAGI : 1,
 	loAttDiag : " slashes you with a sword",
 	hiAttDiag : " swings its axe at you"
 	
@@ -38,7 +40,7 @@ var orc = {
 var ogre = {
     name : "Ogre",
 	str : 100,
-	agil : 30,
+	agil : 50,
 	int : 2,
     maxHP : 300,
     HP : 0,
@@ -47,6 +49,7 @@ var ogre = {
 	expgold : 0,
     expint : 0,
     expMP : 0,
+	expAGI : 2,
 	loAttDiag : " punches you",
 	hiAttDiag : " smashes you to the ground"
 	
@@ -59,7 +62,7 @@ var ogre = {
 var dragon = {
     name : "Dragon",
 	str : 150,
-	agil : 50,
+	agil : 100,
 	int : 20,
     maxHP : 450,
     HP : 0,
@@ -68,6 +71,7 @@ var dragon = {
 	expgold : 100,
     expint : 5,
     expMP : 5,
+	expAGI : 10,
 	loAttDiag : " hits you with its tail",
 	hiAttDiag : " attacks you with its fire breath"
 	

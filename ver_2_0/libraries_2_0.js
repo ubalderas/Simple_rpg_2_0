@@ -53,8 +53,10 @@ function defeat(){
     player.str = player.str+enemy.expstr;
     player.gold = player.gold+enemy.expgold;
     player.int = player.int+enemy.expint;
+	player.agil = player.agil+enemy.expAGI;
     player.maxMP = player.maxMP+enemy.expMP;
 	statsWindowUpdate();
+	console.log(player);
 	
 }
 //Current Battle Statistics Printing function

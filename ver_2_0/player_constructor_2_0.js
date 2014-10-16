@@ -113,10 +113,10 @@ function player_gen(player_obj) {
 	//If  MP < 8, the method prints a dialog to indicate not enough MP, and keeps the player's turn
 	
 	this.heal = function(){
-		if (slayer.MP >= 8){
+		if (slayer.MP >= this.maxMP/5){
 			var healhp= 0.5*this.maxHP + Math.floor(0.8*(this.int));
 			slayer.HP = Math.min.apply(Math,[this.maxHP,slayer.HP + healhp]);
-			slayer.MP -= 8;
+			slayer.MP -= this.maxMP/5;
 			$healDialog = $('<div></div>');
 			$healDialog.html("You recovered "+healhp+" HP!").addClass('blue');
 			$(".battleWindow").append($healDialog);

@@ -4,7 +4,7 @@
 var zombie = {
     name : "Zombie",
 	str : 80,
-	agil : 10,
+	agil : 20,
 	int : 0,
     maxHP : 150,
     HP : 0,
@@ -13,6 +13,7 @@ var zombie = {
 	expgold : 20,
     expint : 0,
     expMP : 0,
+	expAGI : 1,
 	loAttDiag : " scratches you",
 	hiAttDiag : " bites you"
 	
@@ -21,7 +22,7 @@ var zombie = {
 var werewolf = {
     name : "Werewolf",
 	str : 120,
-	agil : 50,
+	agil : 80,
 	int : 2,
     maxHP : 250,
     HP : 0,
@@ -30,6 +31,7 @@ var werewolf = {
 	expgold : 40,
     expint : 2,
     expMP : 2,
+	expAGI : 5,
 	loAttDiag : " scratches you",
 	hiAttDiag : " runs towards you, bites you"
 	
@@ -38,7 +40,7 @@ var werewolf = {
 var vampire = {
     name : "Vampire",
 	str : 100,
-	agil : 60,
+	agil : 100,
 	int : 20,
     maxHP : 400,
     HP : 0,
@@ -47,6 +49,7 @@ var vampire = {
 	expgold : 60,
     expint : 10,
     expMP : 10,
+	expAGI : 8,
 	loAttDiag : " cuts you with its claws",
 	hiAttDiag : " bites you, sucks blood from you"
 	
@@ -59,7 +62,7 @@ var vampire = {
 var demon = {
     name : "Hell Demon",
 	str : 200,
-	agil : 100,
+	agil : 200,
 	int : 50,
     maxHP : 1000,
     HP : 0,
@@ -68,6 +71,7 @@ var demon = {
 	expgold : 500,
     expint : 20,
     expMP : 20,
+	expAGI : 15,
 	loAttDiag : " hits you with its tail",
 	hiAttDiag : " attacks you with its fire breath"
 	

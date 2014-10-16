@@ -14,6 +14,7 @@ function enemy_gen(enemy_obj) {
 	this.expgold=enemy_obj.expgold;
     this.expint=enemy_obj.expint;
     this.expMP=enemy_obj.expMP;
+	this.expAGI=enemy_obj.expAGI;
 	this.loAttDiag = enemy_obj.loAttDiag;
 	this.hiAttDiag = enemy_obj.hiAttDiag;
 	
