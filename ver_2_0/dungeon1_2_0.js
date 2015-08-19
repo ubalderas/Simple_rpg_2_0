@@ -19,6 +19,24 @@ var rattleSnake = {
 	
 }
 
+var eagle = {
+    name : "Bald Eagle",
+	str : 30,
+	agil : 25,
+	int : 5,
+    maxHP : 100,
+    HP : 0,
+	expHP : 2,
+	expstr : 1,
+	expgold : 10,
+    expint : 1,
+    expMP : 0,
+	expAGI : 0,
+	loAttDiag : " attacks you with its talons",
+	hiAttDiag : " picks you up and throws you off a cliff"
+	
+}
+
 var coyote = {
     name : "Coyote",
 	str : 30,
@@ -77,4 +95,4 @@ var bear = {
 	
 }
 
-var dungeon1 = [[rattleSnake,coyote,buffalo],bear];
+var dungeon1 = [[rattleSnake,coyote,buffalo, eagle],bear];
