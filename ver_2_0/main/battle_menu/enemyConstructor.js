@@ -1,7 +1,7 @@
 //Enemy constructor
 //The enemy constructor is used to generate an enemy object when initiating a battle.
 //Enemy objects are very similar to the player's object, and follow a similar structure for its methods and properties
-function enemy_gen(enemy_obj) {
+function enemy_gen(enemy_obj, skillsLibrary) {
     this.name = enemy_obj.name;
 	this.str = enemy_obj.str;
 	this.agil= enemy_obj.agil;
@@ -17,49 +17,33 @@ function enemy_gen(enemy_obj) {
 	this.expAGI=enemy_obj.expAGI;
 	this.loAttDiag = enemy_obj.loAttDiag;
 	this.hiAttDiag = enemy_obj.hiAttDiag;
-	
-	
-	this.loAttack = function(){
-		var enemyDamage = Math.max.apply(Math, [Math.floor(Math.random()*10 + this.str) - slayer.block*slayer.str, 0]);
-		$enemyDialog = $('<div></div>');
-		$enemyDialog.html("Snap! the "+ this.name + this.loAttDiag+" and makes "+enemyDamage+" damage!").addClass('red');
-		$(".battleWindow").append($enemyDialog);
-		slayer.HP = Math.max(0,slayer.HP - enemyDamage);
-       
-    };
-	
-	this.hiAttack = function(){
-		var enemyDamage = Math.max.apply(Math, [Math.floor(Math.random()*10 + 1.5*this.str) - slayer.block*slayer.str, 0]);
-		$enemyDialog = $('<div></div>');
-		$enemyDialog.html("Snap! the "+ this.name + this.hiAttDiag+" and makes "+enemyDamage+" damage!").addClass('red');
-		$(".battleWindow").append($enemyDialog);
-		slayer.HP = Math.max(0,slayer.HP - enemyDamage);
-       
-    };
+	this.skillnames = enemy_obj.skillnames;
+	this.skills = new Object();
     
-	this.Heal = function(){
-		var healhp= 0.5*this.maxHP + Math.floor(80*(this.int)/100);
-        this.HP += healhp;
-        
-        $enemyhealDialog = $('<div></div>');
-        $enemyhealDialog.html(this.name+" recovered "+healhp+" HP!").addClass('blue');
-        $(".battleWindow").append($enemyhealDialog);
+	this.init = function (){
+				
+		if(this.skillnames.length > 0){
+			for(skill in this.skillnames)
+				{
+					var currentSkillName = this.skillnames[skill];
+					this.skills[currentSkillName] = skillsLibrary[currentSkillName];
+					
+				}
+		
+		}
+			
+	}
+    
+    this.init();
+	
+	this.Action = function (enemyObject, playerObject){
+		var skillIndex = Math.floor(Math.random()*this.skillnames.length);
+		var skillName = this.skillnames[skillIndex];
+		console.log(skillName);
+		this.skills[skillName].action(enemyObject, playerObject);
 	}
 	
-	this.Action = function (){
-		if (this.HP < this.maxHP/3 && Math.floor(Math.random()*10)>5){
-		
-			this.Heal();
-		}
-		else{
-			if (Math.floor(Math.random()*10)>5){
-				this.loAttack();
-			}
-			else {
-				this.hiAttack();
-			}
-		}
-	}
+	
 	
     this.battleStart = function(){
         this.HP = this.maxHP;

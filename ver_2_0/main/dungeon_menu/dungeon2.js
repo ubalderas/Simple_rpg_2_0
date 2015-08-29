@@ -15,7 +15,8 @@ var goblin = {
     expMP : 2,
 	expAGI : 1,
 	loAttDiag : " mashes you with its club",
-	hiAttDiag : " runs and headbutts you"
+	hiAttDiag : " runs and headbutts you",
+	skillnames : ["loAttack","flame","hiAttack"]
 	
 }
 
@@ -33,7 +34,8 @@ var orc = {
     expMP : 1,
 	expAGI : 1,
 	loAttDiag : " slashes you with a sword",
-	hiAttDiag : " swings its axe at you"
+	hiAttDiag : " swings its axe at you",
+	skillnames : ["loAttack","flame","hiAttack"]
 	
 }
 
@@ -51,7 +53,8 @@ var ogre = {
     expMP : 0,
 	expAGI : 2,
 	loAttDiag : " punches you",
-	hiAttDiag : " smashes you to the ground"
+	hiAttDiag : " smashes you to the ground",
+	skillnames : ["loAttack","flame","hiAttack"]
 	
 }
 
@@ -73,7 +76,8 @@ var dragon = {
     expMP : 5,
 	expAGI : 10,
 	loAttDiag : " hits you with its tail",
-	hiAttDiag : " attacks you with its fire breath"
+	hiAttDiag : " attacks you with its fire breath",
+	skillnames : ["loAttack","flame","hiAttack"]
 	
 }
 

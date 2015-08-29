@@ -15,7 +15,8 @@ var zombie = {
     expMP : 0,
 	expAGI : 1,
 	loAttDiag : " scratches you",
-	hiAttDiag : " bites you"
+	hiAttDiag : " bites you",
+	skillnames : ["loAttack","flame","hiAttack"]
 	
 }
 
@@ -33,7 +34,8 @@ var werewolf = {
     expMP : 2,
 	expAGI : 5,
 	loAttDiag : " scratches you",
-	hiAttDiag : " runs towards you, bites you"
+	hiAttDiag : " runs towards you, bites you",
+	skillnames : ["loAttack","flame","hiAttack"]
 	
 }
 
@@ -51,7 +53,8 @@ var vampire = {
     expMP : 10,
 	expAGI : 8,
 	loAttDiag : " cuts you with its claws",
-	hiAttDiag : " bites you, sucks blood from you"
+	hiAttDiag : " bites you, sucks blood from you",
+	skillnames : ["loAttack","flame","hiAttack"]
 	
 }
 
@@ -73,7 +76,8 @@ var demon = {
     expMP : 20,
 	expAGI : 15,
 	loAttDiag : " hits you with its tail",
-	hiAttDiag : " attacks you with its fire breath"
+	hiAttDiag : " attacks you with its fire breath",
+	skillnames : ["loAttack","flame","hiAttack"]
 	
 }
 

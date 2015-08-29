@@ -144,10 +144,10 @@ function missed (){
 
 //Enemy Turn function
 //This function is called whenever it is the turn of the enemy during a battle.
-function enemyTurn(){
+function enemyTurn(enemy, player){
 
 	if(slayer.turn){
-			enemy.Action();
+			enemy.Action(enemy, player);
 			
 			if(slayer.HP <= 0){
 				lose();
