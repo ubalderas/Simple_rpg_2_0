@@ -3,8 +3,10 @@
 //along with the UI for the battle screen.
 function battleLoad(dungeon,playerObj){
 
-	enemy = new enemy_gen(enemySelect(dungeon));
+	enemy = new enemy_gen(enemySelect(dungeon), skillsLibrary);
+	console.log(enemy);
 	slayer = new player_gen(playerObj);
+	
 	slayer.battleStart();	
 	$('.battleWindow').empty();
 	statsWindowUpdate();	
