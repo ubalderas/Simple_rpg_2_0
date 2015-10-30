@@ -1,4 +1,4 @@
-//Enemy object: goblin
+
 //The enemy objects are used to generate an enemy object when initiating a battle.
 //Enemy objects are very similar to the player's object, and follow a similar structure for its methods and properties
 var rattleSnake = {
@@ -15,7 +15,8 @@ var rattleSnake = {
     expMP : 0,
 	expAGI : 0,
 	loAttDiag : " bites you",
-	hiAttDiag : " bites you fiercely"
+	hiAttDiag : " bites you fiercely",
+	skillnames : ["loAttack","flame","hiAttack"]
 	
 }
 
@@ -33,7 +34,8 @@ var eagle = {
     expMP : 0,
 	expAGI : 0,
 	loAttDiag : " attacks you with its talons",
-	hiAttDiag : " picks you up and throws you off a cliff"
+	hiAttDiag : " picks you up and throws you off a cliff",
+	skillnames : ["loAttack","hiAttack"]
 	
 }
 
@@ -51,7 +53,8 @@ var coyote = {
     expMP : 0,
 	expAGI : 2,
 	loAttDiag : " scratches you",
-	hiAttDiag : " runs bites you"
+	hiAttDiag : " runs and bites you",
+	skillnames : ["loAttack", "hiAttack"]
 	
 }
 
@@ -69,19 +72,19 @@ var buffalo = {
     expMP : 0,
 	expAGI : 2,
 	loAttDiag : " dashes at you",
-	hiAttDiag : " runs and attacks you with its horns"
+	hiAttDiag : " runs and attacks you with its horns", 
+	skillnames : ["loAttack", "hiAttack"]
 	
 }
 
-//Enemy constructor: dragon
-//The enemy constructors are used to generate an enemy object when initiating a battle.
-//Enemy objects are very similar to the player's object, and follow a similar structure for its methods and properties
+
+//The Dungeon Boss
 
 var bear = {
     name : "Bear",
 	str : 60,
 	agil : 30,
-	int : 0,
+	int : 20,
     maxHP : 250,
     HP : 0,
 	expHP : 20,
@@ -91,7 +94,8 @@ var bear = {
     expMP : 4,
 	expAGI : 3,
 	loAttDiag : " punches you with its claws",
-	hiAttDiag : " bites you"
+	hiAttDiag : " bites you",
+	skillnames : ["loAttack","hiAttack", "miasma"]
 	
 }
 

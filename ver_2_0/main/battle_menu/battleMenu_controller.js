@@ -21,7 +21,7 @@ $(document).ready(function() {
 			defeat();
 		}
 		else{
-			enemyTurn();	//Else, it executes the enemyTurn() function
+			enemyTurn(enemy, slayer);	//Else, it executes the enemyTurn() function
 		}
 				
 	});
@@ -42,7 +42,7 @@ $(document).ready(function() {
 			defeat();
 		}
 		else{
-			enemyTurn();
+			enemyTurn(enemy, slayer);
 		}
 		
 	});
@@ -52,7 +52,7 @@ $(document).ready(function() {
 	$('#block').click(function(){
 		$('.battleWindow').empty();
 		slayer.blocking();		//Then executes the slayer.blocking() method		
-		enemyTurn();
+		enemyTurn(enemy, slayer);
 		
 	});
 	
@@ -61,10 +61,9 @@ $(document).ready(function() {
 	$('#heal').click(function(){
 		$('.battleWindow').empty();
 		slayer.heal();		
-		enemyTurn();
+		enemyTurn(enemy, slayer);
 		
 	});
-	
 	
 
 });

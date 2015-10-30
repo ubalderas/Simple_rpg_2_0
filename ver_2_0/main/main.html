@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="style_2_0.css" />
+        <link rel="stylesheet" href="style.css" />
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script src="main_script_2_0.js" ></script>
-		<script src="characters_2_0.js" ></script>
-		<script src="dungeon1_2_0.js" ></script>
-		<script src="dungeon2_2_0.js" ></script>
-		<script src="dungeon3_2_0.js" ></script>
-        <script src="battle_script_2_0.js" ></script>
-		<script src="libraries_2_0.js" ></script>
-		<script src="enemy_constructor_2_0.js" ></script>
-		<script src="player_constructor_2_0.js" ></script>
+		<script src="mainMenu_controller.js" ></script>
+		<script src="mainMenu_Library.js" ></script>
+		<script src="../main/battle_menu/characters.js" ></script>
+		<script src="../main/dungeon_menu/dungeon1.js" ></script>
+		<script src="../main/dungeon_menu/dungeon2.js" ></script>
+		<script src="../main/dungeon_menu/dungeon3.js" ></script>
+		<script src="../main/dungeon_menu/dungeonMenu_Controller.js" ></script>
+		<script src="../main/dungeon_menu/dungeonMenu_Library.js" ></script>
+        <script src="../main/battle_menu/battleMenu_controller.js" ></script>
+		<script src="../main/battle_menu/battlemenu_library.js" ></script>	
+		<script src="../main/battle_menu/skillsLibrary.js" ></script>		
+		<script src="../main/battle_menu/enemyConstructor.js" ></script>
+		<script src="../main/battle_menu/playerConstructor.js" ></script>
+		
+		
 		
     	<title>Simple RPG Battle</title>
 	</head>
@@ -55,8 +61,7 @@
             <div id="buttonWrapper">
                 <button class ="gameover" id="loattack">Lo Attack</button>		
 				<button class ="gameover" id="heal">Heal</button><br>
-				<button class ="gameover" id="hiattack">Str Attack</button>
-				
+				<button class ="gameover" id="hiattack">Str Attack</button>				
 				<button class ="gameover" id="block">Guard</button>
 				<button class ="gameover" id="dungeon1">Dungeon 1</button>
 				<button class ="gameover" id="dungeon2">Dungeon 2</button>
