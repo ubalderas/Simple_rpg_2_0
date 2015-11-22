@@ -8,22 +8,22 @@ function battleLoad(dungeon,playerObj){
 	slayer = new player_gen(playerObj);
 	
 	slayer.battleStart();	
-	$('.battleWindow').empty();
+	$('#battleWindow').empty();
 	statsWindowUpdate();	
-	$('button').removeClass('gameover');
-	$('.playerStats div').removeClass('gameover');
-	$('#HPbar').removeClass('gameover');
-	$('#MPbar').removeClass('gameover');
-	$('.enemyStats div').removeClass('gameover');
-	$('#statsWindowWrapper').removeClass('gameover');
-	$('#play').addClass('gameover');
-	$('#load').addClass('gameover');
-	$('#save').addClass('gameover');
-	$('#dungeon1').addClass('gameover');
-	$('#dungeon2').addClass('gameover');
-	$('#dungeon3').addClass('gameover');
-	$('#quit').addClass('gameover');
-	$('#newGame').addClass('gameover');
+	$('button').removeClass('element-hide');
+	$('#HUD-playerStats div').removeClass('element-hide');
+	$('#HUD-HPbar').removeClass('element-hide');
+	$('#HUD-MPbar').removeClass('element-hide');
+	$('#HUD-enemyStats div').removeClass('element-hide');
+	$('#HUD-statsWindowWrapper').removeClass('element-hide');
+	$('#titleScreenMenu-button-play').addClass('element-hide');
+	$('#titleScreenMenu-button-loadGame').addClass('element-hide');
+	$('#endOfBattleMenu-button-save').addClass('element-hide');
+	$('#dungeonMenu-button-dungeon1').addClass('element-hide');
+	$('#dungeonMenu-button-dungeon2').addClass('element-hide');
+	$('#dungeonMenu-button-dungeon3').addClass('element-hide');
+	$('#endOfBattleMenu-button-quit').addClass('element-hide');
+	$('#titleScreenMenu-button-newGame').addClass('element-hide');
 	enemy.battleStart();
 	statsPrint();
 	

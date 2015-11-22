@@ -38,14 +38,14 @@ function player_gen(player_obj) {
 				else{
 					$slayerDialog.html("You attack the enemy and make "+slayerDamage+" damage!").addClass('green');
 				}
-				$(".battleWindow").append($slayerDialog);
+				$("#battleWindow").append($slayerDialog);
 				enemy.HP = Math.max(0,enemy.HP - slayerDamage);
 			}
 		
 			else {
 				$missedDialog = $('<div></div>');
 				$missedDialog.html('The attack missed!').addClass('red');
-				$(".battleWindow").append($missedDialog);
+				$("#battleWindow").append($missedDialog);
 			}
 		
 			this.MP -= Math.floor(this.maxMP/2);
@@ -55,7 +55,7 @@ function player_gen(player_obj) {
 		else{
 			$noMPDialog = $('<div></div>');
 			$noMPDialog.html("Not enough MP!").addClass('red');
-			$(".battleWindow").append($noMPDialog);    
+			$("#battleWindow").append($noMPDialog);    
 			this.turn = false;
 		}
        
@@ -82,7 +82,7 @@ function player_gen(player_obj) {
 				else{
 					$slayerDialog.html("You attack the enemy and make "+slayerDamage+" damage!").addClass('green');
 				}
-				$(".battleWindow").append($slayerDialog);
+				$("#battleWindow").append($slayerDialog);
 				enemy.HP = Math.max(0,enemy.HP - slayerDamage);
 				
 			}
@@ -90,7 +90,7 @@ function player_gen(player_obj) {
 			else {
 				$missedDialog = $('<div></div>');
 				$missedDialog.html('The attack missed!').addClass('red');
-				$(".battleWindow").append($missedDialog);
+				$("#battleWindow").append($missedDialog);
 			}
 			
 			this.MP -= Math.floor(2*this.maxMP/3);
@@ -101,7 +101,7 @@ function player_gen(player_obj) {
 		else{
 			$noMPDialog = $('<div></div>');
 			$noMPDialog.html("Not enough MP!").addClass('red');
-			$(".battleWindow").append($noMPDialog);    
+			$("#battleWindow").append($noMPDialog);    
 			this.turn = false;
 		}
        
@@ -116,10 +116,10 @@ function player_gen(player_obj) {
 		if (slayer.MP >= this.maxMP/5){
 			var healhp= 0.5*this.maxHP + Math.floor(0.8*(this.int));
 			slayer.HP = Math.min.apply(Math,[this.maxHP,slayer.HP + healhp]);
-			slayer.MP -= this.maxMP/5;
+			slayer.MP -= Math.floor(this.maxMP/5);
 			$healDialog = $('<div></div>');
 			$healDialog.html("You recovered "+healhp+" HP!").addClass('blue');
-			$(".battleWindow").append($healDialog);
+			$("#battleWindow").append($healDialog);
 			this.block = 0;
 			this.turn = true;
 			
@@ -127,7 +127,7 @@ function player_gen(player_obj) {
 		else{
 			$noMPDialog = $('<div></div>');
 			$noMPDialog.html("Not enough MP!").addClass('red');
-			$(".battleWindow").append($noMPDialog);    
+			$("#battleWindow").append($noMPDialog);    
 			this.turn = false;
 		}
 	}
