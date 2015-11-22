@@ -11,7 +11,7 @@ function win(){
 
     $winDialog=$('<div></div>');
     $winDialog.html("Boom! Enemy Slayed!").addClass('green');
-    $(".battleWindow").append($winDialog);
+    $("#battleWindow").append($winDialog);
 	enemiesDef += 1;
 	
 	if (enemiesDef > 5){
@@ -33,25 +33,25 @@ function lose(){
 
     $loseDialog=$('<div></div>');
     $loseDialog.html("Lolz! you is dead").addClass('red');
-    $(".battleWindow").append($loseDialog);
+    $("#battleWindow").append($loseDialog);
 	enemiesDef = 0;
     gameOver();
 	
 }
 
 //Game Over function
-//Whenever called, it add the style class gameover to all the buttons, player and enemy stats, which hides them,
-//and it removes the gameover class from the button with id 'play', also changing its string html content to ask the player
+//Whenever called, it add the style class element-hide to all the buttons, player and enemy stats, which hides them,
+//and it removes the element-hide class from the button with id 'titleScreenMenu-button-play', also changing its string html content to ask the player
 //if he wants to 'Play again?'
 
 function gameOver(){
 
-    $('button').addClass('gameover');
-    $('#play').removeClass('gameover');
-	$('#save').removeClass('gameover');
-    $('#play').html('Continue?');
-	$('#save').html("Save");
-	$('#quit').removeClass('gameover');
+    $('button').addClass('element-hide');
+    $('#titleScreenMenu-button-play').removeClass('element-hide');
+	$('#endOfBattleMenu-button-save').removeClass('element-hide');
+    $('#titleScreenMenu-button-play').html('Continue?');
+	$('#endOfBattleMenu-button-save').html("Save");
+	$('#endOfBattleMenu-button-quit').removeClass('element-hide');
 	
 }
 
@@ -77,15 +77,15 @@ function defeat(){
 //at the beginning of a battle
 function statsPrint(){
 
-    $('#HPtext').html('HP: '+slayer.HP);	
-	$('#HPbar').width(calcBarWidth(slayer.HP,slayer.maxHP,barWidth));
-	$('#HPbarWrapper').width(calcBarWidth(1,1,barWidth));
-    $('#MPtext').html('MP: '+slayer.MP);
-	$('#MPbar').width(calcBarWidth(slayer.MP,slayer.maxMP,barWidth));
-	$('#MPbarWrapper').width(calcBarWidth(1,1,barWidth));
-    $('#enemyHPtext').html(enemy.name+" "+enemy.HP);
-	$('#enemyHPbar').width(calcBarWidth(enemy.HP,enemy.maxHP,barWidth));
-	$('#enemyHPbarWrapper').width(calcBarWidth(1,1,barWidth));
+    $('#HUD-HPtext').html('HP: '+slayer.HP);	
+	$('#HUD-HPbar').width(calcBarWidth(slayer.HP,slayer.maxHP,barWidth));
+	$('#HUD-HPbarWrapper').width(calcBarWidth(1,1,barWidth));
+    $('#HUD-MPtext').html('MP: '+slayer.MP);
+	$('#HUD-MPbar').width(calcBarWidth(slayer.MP,slayer.maxMP,barWidth));
+	$('#HUD-MPbarWrapper').width(calcBarWidth(1,1,barWidth));
+    $('#HUD-enemyHPtext').html(enemy.name+" "+enemy.HP);
+	$('#HUD-enemyHPbar').width(calcBarWidth(enemy.HP,enemy.maxHP,barWidth));
+	$('#HUD-enemyHPbarWrapper').width(calcBarWidth(1,1,barWidth));
 	
 }
 //Player Attribute Stats Window update function
@@ -95,12 +95,12 @@ function statsPrint(){
 by making it have an object as an input, for future uses of the same window as a display for other properties */
 function statsWindowUpdate(){
 
-	$('#statsWindow').empty();
+	$('#HUD-statsWindow').empty();
 	var maxHPstat = 'MAX HP: '+player.maxHP;
 	var maxMPstat = 'MAX MP: '+player.maxMP;
 	$statsTitle=$('<div></div>');
     $statsTitle.html("Slayer").addClass('red');
-    $("#statsWindow").append($statsTitle);
+    $("#HUD-statsWindow").append($statsTitle);
 	$statsList=$('<ul></ul>');
 	$statsList.css('list-style', 'none').css('margin','0px').css('padding','0px');
 	$statsListSTR=$('<li></li>');
@@ -112,7 +112,7 @@ function statsWindowUpdate(){
 	$statsListMP=$('<li></li>');
 	$statsListMP.html('MAX MP: '+player.maxMP);
 	$statsList.append($statsListSTR).append($statsListINT).append($statsListHP).append($statsListMP);
-	$("#statsWindow").append($statsList);
+	$("#HUD-statsWindow").append($statsList);
 	
 };
 
@@ -138,7 +138,7 @@ function missed (){
 
 	$missedDialog = $('<div></div>');
 	$missedDialog.html('The attack missed!').addClass('red');
-	$(".battleWindow").append($missedDialog);
+	$("#battleWindow").append($missedDialog);
 	
 };
 
@@ -184,7 +184,7 @@ function dungeonFinished (){
 
 	$Dialog = $('<div></div>');
 	$Dialog.html('Congratulations! You have cleared this dungeon!').addClass('red');
-	$(".battleWindow").append($Dialog);
+	$("#battleWindow").append($Dialog);
 	enemiesDef = 0;
 	
 };

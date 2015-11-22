@@ -6,15 +6,15 @@ $(document).ready(function() {
 	
 	if(!localStorage.getItem("localsaveRPG"))
 	{
-		$('#load').addClass('gameover');
+		$('#titleScreenMenu-button-loadGame').addClass('element-hide');
 	}
 	
-	$('#load').click(function(){		
+	$('#titleScreenMenu-button-loadGame').click(function(){		
 		player = loadData();
 		console.log(player);				
 	});
 	
-	$('#newGame').click(function(){	
+	$('#titleScreenMenu-button-newGame').click(function(){	
 		player = newPlayer;
 		newGame();
 		console.log(player);		

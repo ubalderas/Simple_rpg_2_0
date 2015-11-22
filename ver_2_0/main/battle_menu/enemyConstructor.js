@@ -50,6 +50,6 @@ function enemy_gen(enemy_obj, skillsLibrary) {
 		this.MP = this.maxMP;
 		$enemyDialog = $('<div></div>');
         $enemyDialog.html("An enemy "+this.name+" approaches!").addClass('blue');
-        $(".battleWindow").append($enemyDialog);
+        $("#battleWindow").append($enemyDialog);
     };
 }

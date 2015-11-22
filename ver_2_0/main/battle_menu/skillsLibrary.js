@@ -7,7 +7,7 @@ skillsLibrary["flame"] = {
 		var enemyDamage = Math.max.apply(Math, [Math.floor(Math.random()*10 + attackerObject.int) - attackedObject.block*attackedObject.int, 0]);
 		$enemyDialog = $('<div></div>');
 		$enemyDialog.html("Snap! the "+ attackerObject.name+" spits a flame to you and makes "+enemyDamage+" damage!").addClass('red');
-		$(".battleWindow").append($enemyDialog);
+		$("#battleWindow").append($enemyDialog);
 		attackedObject.HP = Math.max(0,attackedObject.HP - enemyDamage);
 		
 	}	
@@ -19,7 +19,7 @@ skillsLibrary["loAttack"] = {
 		var enemyDamage = Math.max.apply(Math, [Math.floor(Math.random()*10 + attackerObject.str) - attackedObject.block*attackedObject.str, 0]);
 		$enemyDialog = $('<div></div>');
 		$enemyDialog.html("Snap! the "+ attackerObject.name + attackerObject.loAttDiag+" and makes "+enemyDamage+" damage!").addClass('red');
-		$(".battleWindow").append($enemyDialog);
+		$("#battleWindow").append($enemyDialog);
 		attackedObject.HP = Math.max(0,attackedObject.HP - enemyDamage);
 	}
 }
@@ -30,7 +30,7 @@ skillsLibrary["hiAttack"] = {
 		var enemyDamage = Math.max.apply(Math, [Math.floor(Math.random()*10 + 1.5*attackerObject.str) - attackedObject.block*attackedObject.str, 0]);
 		$enemyDialog = $('<div></div>');
 		$enemyDialog.html("Snap! the "+ attackerObject.name + attackerObject.hiAttDiag+" and makes "+enemyDamage+" damage!").addClass('red');
-		$(".battleWindow").append($enemyDialog);
+		$("#battleWindow").append($enemyDialog);
 		attackedObject.HP = Math.max(0,attackedObject.HP - enemyDamage);
 	}
 }
@@ -43,7 +43,7 @@ skillsLibrary["heal"] = {
         
         $enemyhealDialog = $('<div></div>');
         $enemyhealDialog.html(attackerObject.name+" recovered "+healhp+" HP!").addClass('blue');
-        $(".battleWindow").append($enemyhealDialog);
+        $("#battleWindow").append($enemyhealDialog);
 	}
 }
 
@@ -54,7 +54,7 @@ skillsLibrary["miasma"] = {
 		var enemyDamage = Math.max.apply(Math, [Math.floor(Math.random()*10 + attackerObject.int) - attackedObject.block*attackedObject.int, 0]);
 		$enemyDialog = $('<div></div>');
 		$enemyDialog.html("Snap! the "+ attackerObject.name+" casts miasma and makes "+enemyDamage+" damage!").addClass('red');
-		$(".battleWindow").append($enemyDialog);
+		$("#battleWindow").append($enemyDialog);
 		attackedObject.HP = Math.max(0,attackedObject.HP - enemyDamage);
 		
 	}	

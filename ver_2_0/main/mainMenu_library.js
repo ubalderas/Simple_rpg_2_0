@@ -2,33 +2,32 @@
 //Returns player to the Main Menu
 function mainScreen(){
 
-	$('.battleWindow').empty();
+	$('#battleWindow').empty();
 	$titleScreen = $('<div></div>');
 	$titleScreen.html('RPG battle demo').attr('id', 'titleScreen');
-	$(".battleWindow").append($titleScreen);	
-	$('button').addClass('gameover');
-	$('#statsWindowWrapper').addClass('gameover');
-    $('#newGame').removeClass('gameover');
-	$('#load').removeClass('gameover');
-    $('.playerStats div').addClass('gameover');
-    $('#enemyhp').addClass('gameover');
-	$('#HPbar').addClass('gameover');
-	$('#MPbar').addClass('gameover');
-    $('#newGame').html('New Game');
-	$('#load').html("Load Game");
+	$("#battleWindow").append($titleScreen);	
+	$('button').addClass('element-hide');
+	$('#HUD-statsWindowWrapper').addClass('element-hide');
+    $('#titleScreenMenu-button-newGame').removeClass('element-hide');
+	$('#titleScreenMenu-button-loadGame').removeClass('element-hide');
+    $('#HUD-playerStats div').addClass('element-hide');
+    $('#HUD-enemyhp').addClass('element-hide');
+	$('#HUD-HPbar').addClass('element-hide');
+	$('#HUD-MPbar').addClass('element-hide');
+    $('#titleScreenMenu-button-newGame').html('New Game');
+	$('#titleScreenMenu-button-loadGame').html("Load Game");
 	
 };
 
 //New Game function
-//This function hides the new game and load buttons and 
+//This function hides the new game and load game buttons and 
 //displays the 'Play' button
 function newGame(){
 
-	$('#newGame').addClass('gameover');
-	$('#load').addClass('gameover');
-	$('#play').removeClass('gameover');
-	$('#play').html('Play');
-	console.log("newGame was executed");
+	$('#titleScreenMenu-button-newGame').addClass('element-hide');
+	$('#titleScreenMenu-button-loadGame').addClass('element-hide');
+	$('#titleScreenMenu-button-play').removeClass('element-hide');
+	$('#titleScreenMenu-button-play').html('Play');
 	
 };
 
@@ -40,7 +39,7 @@ function saveData(player){
 
 	var newJSON = JSON.stringify(player);    
     localStorage.setItem("localsaveRPG", newJSON);
-	$('#save').html("Saved!");
+	$('#endOfBattleMenu-button-save').html("Saved!");
 	
 };
 
@@ -52,10 +51,12 @@ function loadData(){
 
 	var lsave = localStorage.getItem("localsaveRPG");
     var playerTemp =JSON.parse(lsave);
-	$('#load').html("Success!");
-	$('#newGame').addClass('gameover');
-	$('#play').removeClass('gameover');
-	$('#play').html("Continue");
+	$('#battleWindow').empty();
+	$('#battleWindow').html('Game loaded successfully!');
+	$('#titleScreenMenu-button-loadGame').addClass('element-hide');
+	$('#titleScreenMenu-button-newGame').addClass('element-hide');
+	$('#titleScreenMenu-button-play').removeClass('element-hide');
+	$('#titleScreenMenu-button-play').html("Continue");
 	return playerTemp;
 	
 };
@@ -65,20 +66,20 @@ function loadData(){
 //for selection.
 function selectDungeon (){
 
-	$('.battleWindow').empty();
-	$('.battleWindow').html("Choose a dungeon!");	
-	$('button').removeClass('gameover'); 
-	$('#play').addClass('gameover');
-	$('#load').addClass('gameover');
-	$('#save').addClass('gameover');
-	$('#heal').addClass('gameover');
-	$('#newGame').addClass('gameover');
-	$('.playerStats div').addClass('gameover');
-    $('#enemyhp').addClass('gameover');	
-	$('#HPbar').removeClass('gameover');
-	$('#MPbar').removeClass('gameover');
-	$('#loattack').addClass('gameover');
-	$('#hiattack').addClass('gameover');
-	$('#block').addClass('gameover');
+	$('#battleWindow').empty();
+	$('#battleWindow').html("Choose a dungeon!");	
+	$('button').removeClass('element-hide'); 
+	$('#titleScreenMenu-button-play').addClass('element-hide');
+	$('#titleScreenMenu-button-loadGame').addClass('element-hide');
+	$('#endOfBattleMenu-button-save').addClass('element-hide');
+	$('#battleMenu-button-heal').addClass('element-hide');
+	$('#titleScreenMenu-button-newGame').addClass('element-hide');
+	$('#HUD-playerStats div').addClass('element-hide');
+    $('#HUD-enemyhp').addClass('element-hide');	
+	$('#HUD-HPbar').removeClass('element-hide');
+	$('#HUD-MPbar').removeClass('element-hide');
+	$('#battleMenu-button-loattack').addClass('element-hide');
+	$('#battleMenu-button-hiattack').addClass('element-hide');
+	$('#battleMenu-button-guard').addClass('element-hide');
 	
 };

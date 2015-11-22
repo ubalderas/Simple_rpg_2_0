@@ -10,8 +10,8 @@ $(document).ready(function() {
 	//Whenever the 'Attack' button is pressed, this function gets executed.
 	//This function first empties the content of the battleWindow.
 				 
-	$('#loattack').click(function(){
-		$('.battleWindow').empty();
+	$('#battleMenu-button-loattack').click(function(){
+		$('#battleWindow').empty();
 		 
 		slayer.loAttack(hitOrMiss(slayer,enemy));			
 		statsPrint();
@@ -31,8 +31,8 @@ $(document).ready(function() {
 	//Whenever the 'Str Attack' button is pressed, this function gets executed.
 	//This function is identical to the .loattack click function, but it calls the slayer.hiAttack() method instead.
 	
-	$('#hiattack').click(function(){
-		$('.battleWindow').empty();
+	$('#battleMenu-button-hiattack').click(function(){
+		$('#battleWindow').empty();
 		
 		slayer.hiAttack(hitOrMiss(slayer,enemy));
 		statsPrint();
@@ -49,8 +49,8 @@ $(document).ready(function() {
 	
 	//Player Blocking button click function
 	//This function first empties the battleWindow
-	$('#block').click(function(){
-		$('.battleWindow').empty();
+	$('#battleMenu-button-guard').click(function(){
+		$('#battleWindow').empty();
 		slayer.blocking();		//Then executes the slayer.blocking() method		
 		enemyTurn(enemy, slayer);
 		
@@ -58,8 +58,8 @@ $(document).ready(function() {
 	
 	//Player Heal button click function
 	//This function is very similar to the blocking function, but it performs a slayer.heal() method instead.
-	$('#heal').click(function(){
-		$('.battleWindow').empty();
+	$('#battleMenu-button-heal').click(function(){
+		$('#battleWindow').empty();
 		slayer.heal();		
 		enemyTurn(enemy, slayer);
 		
