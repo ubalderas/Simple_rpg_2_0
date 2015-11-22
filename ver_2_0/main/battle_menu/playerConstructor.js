@@ -1,7 +1,7 @@
 //Enemy constructor
 //The enemy constructor is used to generate an enemy object when initiating a battle.
 //Enemy objects are very similar to the player's object, and follow a similar structure for its methods and properties
-function player_gen(player_obj) {
+function player_gen(player_obj, skillsLibrary) {
     this.name = player_obj.name;
 	this.str = player_obj.str;
 	this.agil= player_obj.agil;
@@ -14,7 +14,23 @@ function player_gen(player_obj) {
 	this.gold=player_obj.gold;
     this.block=player_obj.block;
 	this.turn=false;
+	
+	this.skillnames = player_obj.skillnames;
+	this.skills = new Object();
+    
+	this.init = function (){
+				
+		if(this.skillnames.length > 0){
+			for(skill in this.skillnames)
+				{
+					var currentSkillName = this.skillnames[skill];
+					this.skills[currentSkillName] = skillsLibrary[currentSkillName];
+					
+				}
 		
+		}
+			
+	}	
 	
 	//Player's method: weak attack
 	//This method performs a weak attack on an enemy, which consumes half of the current maximum MP
