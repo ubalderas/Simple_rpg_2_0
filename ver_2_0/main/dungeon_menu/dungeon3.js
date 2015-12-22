@@ -2,6 +2,7 @@
 //The enemy objects are used to generate an enemy object when initiating a battle.
 //Enemy objects are very similar to the player's object, and follow a similar structure for its methods and properties
 var zombie = {
+	type : "enemy",
     name : "Zombie",
 	str : 80,
 	agil : 20,
@@ -14,6 +15,7 @@ var zombie = {
     expint : 0,
     expMP : 0,
 	expAGI : 1,
+	block: 1,
 	loAttDiag : " scratches you",
 	hiAttDiag : " bites you",
 	skillnames : ["loAttack","flame","hiAttack"]
@@ -21,6 +23,7 @@ var zombie = {
 }
 
 var werewolf = {
+	type : "enemy",
     name : "Werewolf",
 	str : 120,
 	agil : 80,
@@ -33,6 +36,7 @@ var werewolf = {
     expint : 2,
     expMP : 2,
 	expAGI : 5,
+	block: 1,
 	loAttDiag : " scratches you",
 	hiAttDiag : " runs towards you, bites you",
 	skillnames : ["loAttack","flame","hiAttack"]
@@ -40,6 +44,7 @@ var werewolf = {
 }
 
 var vampire = {
+	type : "enemy",
     name : "Vampire",
 	str : 100,
 	agil : 100,
@@ -52,6 +57,7 @@ var vampire = {
     expint : 10,
     expMP : 10,
 	expAGI : 8,
+	block: 1,
 	loAttDiag : " cuts you with its claws",
 	hiAttDiag : " bites you, sucks blood from you",
 	skillnames : ["loAttack","flame","hiAttack"]
@@ -63,6 +69,7 @@ var vampire = {
 //Enemy objects are very similar to the player's object, and follow a similar structure for its methods and properties
 
 var demon = {
+	type : "enemy",
     name : "Hell Demon",
 	str : 200,
 	agil : 200,
@@ -75,6 +82,7 @@ var demon = {
     expint : 20,
     expMP : 20,
 	expAGI : 15,
+	block: 1,
 	loAttDiag : " hits you with its tail",
 	hiAttDiag : " attacks you with its fire breath",
 	skillnames : ["loAttack","flame","hiAttack"]

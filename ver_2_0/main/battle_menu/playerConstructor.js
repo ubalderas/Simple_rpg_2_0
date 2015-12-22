@@ -2,6 +2,7 @@
 //The enemy constructor is used to generate an enemy object when initiating a battle.
 //Enemy objects are very similar to the player's object, and follow a similar structure for its methods and properties
 function player_gen(player_obj, skillsLibrary) {
+	this.type = player_obj.type;
     this.name = player_obj.name;
 	this.str = player_obj.str;
 	this.agil= player_obj.agil;
@@ -18,19 +19,60 @@ function player_gen(player_obj, skillsLibrary) {
 	this.skillnames = player_obj.skillnames;
 	this.skills = new Object();
     
-	this.init = function (){
+	this.initializeSkills = function (){
 				
 		if(this.skillnames.length > 0){
 			for(skill in this.skillnames)
 				{
 					var currentSkillName = this.skillnames[skill];
 					this.skills[currentSkillName] = skillsLibrary[currentSkillName];
-					
+					$skillButton=$('<button></button>');
+					skillIdString='battleMenu-button-skill-'+this.skillnames[skill]
+					$skillButton.attr('id',skillIdString)
+					$skillButton.attr('name',this.skillnames[skill])
+					$skillButton.html(this.skills[currentSkillName].label)
+					$skillButton.addClass('skill-button');
+					$("#buttonWrapper").append($skillButton);
 				}
-		
+				
+			$("button[id*='battleMenu-button-skill']").click(function(){
+				$('#battleWindow').empty();
+				skillName =	$(this).attr('name');
+				console.log(slayer.name+" uses "+skillName);
+				
+				slayer.skillAction(slayer,enemy, skillName);
+				statsPrint();
+				
+				console.log(enemy.name+" has "+enemy.HP+" HP");
+				console.log(slayer.name);
+				if(enemy.HP <= 0){
+					win();
+					defeat();
+				}
+				else{
+					enemyTurn(enemy, slayer);
+				}
+			});			
 		}
 			
 	}	
+	
+	this.skillAction = function (enemyObject, playerObject, skillName){
+		if (this.MP >= this.maxMP*this.skills[skillName].mpRatio){
+			console.log(skillName);
+			this.skills[skillName].action(enemyObject, playerObject);
+			this.MP -= this.maxMP*this.skills[skillName].mpRatio;
+			this.block = 0;
+			this.turn = true;
+		}
+		
+		else{
+			$noMPDialog = $('<div></div>');
+			$noMPDialog.html("Not enough MP!").addClass('red');
+			$("#battleWindow").append($noMPDialog);    
+			this.turn = false;
+		}
+	}
 	
 	//Player's method: weak attack
 	//This method performs a weak attack on an enemy, which consumes half of the current maximum MP

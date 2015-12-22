@@ -46,12 +46,14 @@ function lose(){
 
 function gameOver(){
 
-    $('button').addClass('element-hide');
+    $('#buttonWrapper .skill-button').remove();
+	$('button').addClass('element-hide');
     $('#titleScreenMenu-button-play').removeClass('element-hide');
 	$('#endOfBattleMenu-button-save').removeClass('element-hide');
     $('#titleScreenMenu-button-play').html('Continue?');
 	$('#endOfBattleMenu-button-save').html("Save");
 	$('#endOfBattleMenu-button-quit').removeClass('element-hide');
+	
 	
 }
 

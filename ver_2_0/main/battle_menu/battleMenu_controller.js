@@ -64,6 +64,5 @@ $(document).ready(function() {
 		enemyTurn(enemy, slayer);
 		
 	});
-	
-
+		
 });

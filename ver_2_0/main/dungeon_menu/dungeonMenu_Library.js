@@ -5,7 +5,7 @@ function battleLoad(dungeon,playerObj){
 
 	enemy = new enemy_gen(enemySelect(dungeon), skillsLibrary);
 	console.log(enemy);
-	slayer = new player_gen(playerObj);
+	slayer = new player_gen(playerObj, skillsLibrary);
 	
 	slayer.battleStart();	
 	$('#battleWindow').empty();
@@ -24,6 +24,8 @@ function battleLoad(dungeon,playerObj){
 	$('#dungeonMenu-button-dungeon3').addClass('element-hide');
 	$('#endOfBattleMenu-button-quit').addClass('element-hide');
 	$('#titleScreenMenu-button-newGame').addClass('element-hide');
+	slayer.initializeSkills(slayer, enemy);
+	
 	enemy.battleStart();
 	statsPrint();
 	

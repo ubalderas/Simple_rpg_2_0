@@ -2,6 +2,7 @@
 //The enemy constructor is used to generate an enemy object when initiating a battle.
 //Enemy objects are very similar to the player's object, and follow a similar structure for its methods and properties
 function enemy_gen(enemy_obj, skillsLibrary) {
+	this.type = enemy_obj.type;
     this.name = enemy_obj.name;
 	this.str = enemy_obj.str;
 	this.agil= enemy_obj.agil;
@@ -15,6 +16,7 @@ function enemy_gen(enemy_obj, skillsLibrary) {
     this.expint=enemy_obj.expint;
     this.expMP=enemy_obj.expMP;
 	this.expAGI=enemy_obj.expAGI;
+	this.block=enemy_obj.block;
 	this.loAttDiag = enemy_obj.loAttDiag;
 	this.hiAttDiag = enemy_obj.hiAttDiag;
 	this.skillnames = enemy_obj.skillnames;

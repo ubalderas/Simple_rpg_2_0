@@ -2,6 +2,7 @@
 //The enemy objects are used to generate an enemy object when initiating a battle.
 //Enemy objects are very similar to the player's object, and follow a similar structure for its methods and properties
 var goblin = {
+	type : "enemy",
     name : "Goblin",
 	str : 40,
 	agil : 20,
@@ -14,6 +15,7 @@ var goblin = {
     expint : 2,
     expMP : 2,
 	expAGI : 1,
+	block: 1,
 	loAttDiag : " mashes you with its club",
 	hiAttDiag : " runs and headbutts you",
 	skillnames : ["loAttack","flame","hiAttack"]
@@ -21,6 +23,7 @@ var goblin = {
 }
 
 var orc = {
+	type : "enemy",
     name : "Orc",
 	str : 70,
 	agil : 30,
@@ -33,6 +36,7 @@ var orc = {
     expint : 1,
     expMP : 1,
 	expAGI : 1,
+	block: 1,
 	loAttDiag : " slashes you with a sword",
 	hiAttDiag : " swings its axe at you",
 	skillnames : ["loAttack","flame","hiAttack"]
@@ -40,6 +44,7 @@ var orc = {
 }
 
 var ogre = {
+	type : "enemy",
     name : "Ogre",
 	str : 100,
 	agil : 50,
@@ -52,6 +57,7 @@ var ogre = {
     expint : 0,
     expMP : 0,
 	expAGI : 2,
+	block: 1,
 	loAttDiag : " punches you",
 	hiAttDiag : " smashes you to the ground",
 	skillnames : ["loAttack","flame","hiAttack"]
@@ -63,6 +69,7 @@ var ogre = {
 //Enemy objects are very similar to the player's object, and follow a similar structure for its methods and properties
 
 var dragon = {
+	type : "enemy",
     name : "Dragon",
 	str : 150,
 	agil : 100,
@@ -75,6 +82,7 @@ var dragon = {
     expint : 5,
     expMP : 5,
 	expAGI : 10,
+	block: 1,
 	loAttDiag : " hits you with its tail",
 	hiAttDiag : " attacks you with its fire breath",
 	skillnames : ["loAttack","flame","hiAttack"]
