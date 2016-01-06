@@ -72,14 +72,14 @@ function selectDungeon (){
 	$('#titleScreenMenu-button-play').addClass('element-hide');
 	$('#titleScreenMenu-button-loadGame').addClass('element-hide');
 	$('#endOfBattleMenu-button-save').addClass('element-hide');
-	$('#battleMenu-button-heal').addClass('element-hide');
+	
 	$('#titleScreenMenu-button-newGame').addClass('element-hide');
 	$('#HUD-playerStats div').addClass('element-hide');
     $('#HUD-enemyhp').addClass('element-hide');	
 	$('#HUD-HPbar').removeClass('element-hide');
 	$('#HUD-MPbar').removeClass('element-hide');
-	$('#battleMenu-button-loattack').addClass('element-hide');
-	$('#battleMenu-button-hiattack').addClass('element-hide');
-	$('#battleMenu-button-guard').addClass('element-hide');
+	
+	
+	
 	
 };

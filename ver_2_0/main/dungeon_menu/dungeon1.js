@@ -93,7 +93,7 @@ var bear = {
     name : "Bear",
 	str : 60,
 	agil : 30,
-	int : 20,
+	int : 5,
     maxHP : 250,
     HP : 0,
 	expHP : 20,

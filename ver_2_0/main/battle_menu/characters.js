@@ -15,6 +15,6 @@ var newPlayer = {
     gold:0,	//Initializes and holds current gold
 	block:1,	//holds current blocking ratio
 	turn:false,	//holds a flag to determine player's turn
-	skillnames: ["miasma","flame"]
+	skillnames: ["loAttack", "hiAttack",, "heal", "guard", "miasma","flame"]
 };
 
