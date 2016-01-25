@@ -4,18 +4,24 @@ $(document).ready(function() {
 	//Select dungeon 1 button click function
 	$('#dungeonMenu-button-dungeon1').click(function(){
 		currentDungeon = dungeon1;
+		player.HP=player.maxHP;
+		player.MP=player.maxMP;
 		battleLoad(currentDungeon,player);		
 	});
 	
 	//Select dungeon 2 button click function
 	$('#dungeonMenu-button-dungeon2').click(function(){
 		currentDungeon = dungeon2;
+		player.HP=player.maxHP;
+		player.MP=player.maxMP;
 		battleLoad(currentDungeon,player);
 	});
 	
 	//Select dungeon 3 button click function
 	$('#dungeonMenu-button-dungeon3').click(function(){
 		currentDungeon = dungeon3;
+		player.HP=player.maxHP;
+		player.MP=player.maxMP;
 		battleLoad(currentDungeon,player);
 	});
 	

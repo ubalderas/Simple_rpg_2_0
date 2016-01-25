@@ -70,6 +70,8 @@ function defeat(){
     player.int = player.int+enemy.expint;
 	player.agil = player.agil+enemy.expAGI;
     player.maxMP = player.maxMP+enemy.expMP;
+	player.HP=slayer.HP;
+	player.MP=slayer.MP;
 	statsWindowUpdate();
 	console.log(player);
 	

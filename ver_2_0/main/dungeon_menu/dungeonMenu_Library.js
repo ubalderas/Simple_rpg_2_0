@@ -6,8 +6,7 @@ function battleLoad(dungeon,playerObj){
 	enemy = new enemy_gen(enemySelect(dungeon), skillsLibrary);
 	console.log(enemy);
 	slayer = new player_gen(playerObj, skillsLibrary);
-	
-	slayer.battleStart();	
+		
 	$('#battleWindow').empty();
 	statsWindowUpdate();	
 	$('button').removeClass('element-hide');
